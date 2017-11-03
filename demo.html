@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+	body{
+	margin: 0;
+}
+#slide{
+	height: 568px;
+	width: 1600px;
+	display: flex;
+	top: 0;
+	left: 0;
+	position: absolute;
+}
+.panel{
+	height: 568px;
+	width: 320px;
+	border: 1px solid black;
+	display: inline-block;
+	text-align: center;
+}
+.button1{
+	height: 100%;
+	width: 200px;
+	position: fixed;
+	left: 0;
+	background: RGBA(0,0,0,0.5);
+}
+.button2{
+	height: 100%;
+	width: 200px;
+	position: fixed;
+	right: 0;
+	background: RGBA(0,0,0,0.5);	
+}
+	#info{
+		font-size: 100;
+	}
+</style>
+<title>demo</title>
+</head>
+
+<body>	
+	<div id = "slide">
+		<div class = "panel">1</div>
+		<div class = "panel">2</div>
+		<div class = "panel">3</div>
+		<div class = "panel">4</div>
+		<div class = "panel">5</div>
+	</div>
+	<div class = "button1"></div>
+	<div class = "button2"></div>
+<div id="info">width:1680 height:1050</div>
+</body>
+<script>
+	var info = document.getElementById("info");
+	info.innerHTML = "width:"+screen.width + " height:" + screen.height;
+	console.log("test");		
+</script>
+</html>
