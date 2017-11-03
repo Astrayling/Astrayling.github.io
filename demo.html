@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
 <head>
+<meta name="viewport" content="width=device-width,user-scalable=0,initial-scale=1,maximum-scale=1">
 <meta charset="utf-8">
 <style>
 	body{
@@ -13,31 +14,43 @@
 	top: 0;
 	left: 0;
 	position: absolute;
+	transition: left 300ms ease-out;
 }
 .panel{
-	height: 568px;
+	height: 100%;
 	width: 320px;
-	border: 1px solid black;
+	border: 0px solid black;
 	display: inline-block;
 	text-align: center;
+	line-height: 568px;
+	font-size: 100px;
 }
 .button1{
 	height: 100%;
-	width: 200px;
+	width: 50px;
 	position: fixed;
+	top: 0;
 	left: 0;
 	background: RGBA(0,0,0,0.5);
 }
 .button2{
 	height: 100%;
-	width: 200px;
+	width: 50px;
 	position: fixed;
+	top: 0;
 	right: 0;
 	background: RGBA(0,0,0,0.5);	
 }
-	#info{
-		font-size: 100;
-	}
+#pBtn{
+	margin: auto;
+	width: 320px;
+	text-align: center;
+	bottom: 0;
+	position: absolute;
+}
+#pBtn .p{
+	display: inline-block;
+}
 </style>
 <title>demo</title>
 </head>
@@ -50,13 +63,40 @@
 		<div class = "panel">4</div>
 		<div class = "panel">5</div>
 	</div>
-	<div class = "button1"></div>
-	<div class = "button2"></div>
-<div id="info">width:1680 height:1050</div>
+	<div class = "button1" ontouchstart = "moveLeft()"></div>
+	<div class = "button2" ontouchstart = "moveRight()"></div>
+	<div id = "pBtn">
+		<div class = "p" ontouchstart = "changePage(1)">1</div>
+		<div class = "p" ontouchstart = "changePage(2)">2</div>
+		<div class = "p" ontouchstart = "changePage(3)">3</div>
+		<div class = "p" ontouchstart = "changePage(4)">4</div>
+		<div class = "p" ontouchstart = "changePage(5)">5</div>
+	</div>
 </body>
 <script>
-	var info = document.getElementById("info");
-	info.innerHTML = "width:"+screen.width + " height:" + screen.height;
-	console.log("test");		
+	var pNum = 1;
+	var width = 320;
+	function moveRight(){
+		pNum ++;
+		if(pNum > 5){
+			pNum = 5;
+		}
+		var slide = document.getElementById("slide");
+		slide.style.left = "-" + ((pNum - 1) * width) + "px";
+	}
+	function moveLeft(){
+		pNum --;
+		if(pNum < 1){
+			pNum = 1;
+		}
+		var slide = document.getElementById("slide");
+		slide.style.left = "-" + ((pNum - 1) * width) + "px";
+	}
+	
+	function changePage(Page){
+		pNum = Page;
+		var slide = document.getElementById("slide");
+		slide.style.left = "-" + ((pNum - 1) * width) + "px";
+	}
 </script>
 </html>
